@@ -27,7 +27,7 @@
     </script>
 </head>
 <body>
-    <header class="w-full sticky top-0  bg-white lg:py-4 px-4 md:px-8 lg:px-12 border-b border-gray-200 z-40" x-data="{ 
+    <header class="w-full sticky top-0  bg-white lg:py-4 px-4 md:px-8 lg:px-12  z-40" x-data="{ 
         mobileMenuOpen: false,
         activeLink: 'all-courses',
         language: 'EN',
@@ -49,37 +49,99 @@
               </svg>
             </button>
             <div class="flex items-center">
-              <a href="#" class="text-green-500 font-bold text-5xl flex w-[180px] items-center">
+              <a href="./home.html" class="text-green-500 font-bold text-5xl flex w-[180px] items-center">
                 <h1 style="padding: 14px 10px;">keeron</h1>
               </a>
             </div>
     
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex ml-10 items-center space-x-7">
-              <a href="#" @click.prevent="activeLink = 'all-courses'"
-                :class="{'text-green-500': activeLink === 'all-courses'}"
-                class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200">All
-                Courses</a>
-    
-              <a href="#" @click.prevent="activeLink = 'live-courses'"
-                :class="{'text-green-500': activeLink === 'live-courses'}"
-                class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200">Live
-                Courses</a>
-    
-              <a href="#" @click.prevent="activeLink = 'free-test'" :class="{'text-green-500': activeLink === 'free-test'}"
-                class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200">Free
-                Test</a>
-    
-              <a href="#" @click.prevent="activeLink = 'download-resources'"
-                :class="{'text-green-500': activeLink === 'download-resources'}"
-                class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200">Download
-                Resources</a>
-    
-              <a href="#" @click.prevent="activeLink = 'free-events'"
-                :class="{'text-green-500': activeLink === 'free-events'}"
-                class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200">Free
-                Events</a>
+            <nav class="hidden md:flex ml-10 items-center space-x-7" id="main-nav">
+              <a href="./allcourse.html" 
+                 class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200 nav-link"
+                 data-target="all-courses">All Courses</a>
+              
+              <a href="./livecourse.html" 
+                 class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200 nav-link"
+                 data-target="live-courses">Live Courses</a>
+              
+              <a href="./freetest.html" 
+                 class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200 nav-link"
+                 data-target="free-test">Free Test</a>
+              
+              <a href="./downloadresourse.html" 
+                 class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200 nav-link"
+                 data-target="download-resources">Download Resources</a>
+              
+              <a href="./freeevent.html" 
+                 class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200 nav-link"
+                 data-target="free-events">Free Events</a>
             </nav>
+            
+            <script>
+           document.addEventListener('DOMContentLoaded', function() {
+  // Get all navigation links
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  // Add click event listeners to each nav link
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Remove active class from all links
+      navLinks.forEach(l => l.classList.remove('text-green-500'));
+      
+      // Add active class to clicked link
+      this.classList.add('text-green-500');
+      
+      // Store active link in localStorage
+      localStorage.setItem('activeNavLink', this.dataset.target);
+    });
+  });
+  
+  // Get all links on the page (not just nav links)
+  const allLinks = document.querySelectorAll('a:not(.nav-link)');
+  
+  // Add click event to all other links to reset active state
+  allLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Remove active class from all nav links
+      navLinks.forEach(navLink => navLink.classList.remove('text-green-500'));
+      
+      // Also clear localStorage
+      localStorage.removeItem('activeNavLink');
+    });
+  });
+  
+  // On page load, check if we should set an active link
+  const currentPath = window.location.pathname;
+  let activeSet = false;
+  
+  // Try to match based on the current path
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    const hrefFile = href.split('/').pop();
+    const pathFile = currentPath.split('/').pop();
+    
+    // If current page matches this nav link
+    if (pathFile === hrefFile) {
+      navLinks.forEach(l => l.classList.remove('text-green-500'));
+      link.classList.add('text-green-500');
+      localStorage.setItem('activeNavLink', link.dataset.target);
+      activeSet = true;
+    }
+  });
+  
+  // If no match by URL but we have localStorage, use that
+  if (!activeSet) {
+    const activeLink = localStorage.getItem('activeNavLink');
+    if (activeLink) {
+      const link = document.querySelector(`[data-target="${activeLink}"]`);
+      if (link) {
+        navLinks.forEach(l => l.classList.remove('text-green-500'));
+        link.classList.add('text-green-500');
+      }
+    }
+  }
+});
+            </script>
           </div>
           <div class="flex gap-3 lg:gap-6 items-center">
             <!-- Search bar -->

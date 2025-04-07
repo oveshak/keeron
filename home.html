@@ -11,7 +11,18 @@
 <link rel="stylesheet" href="./assets/css/headerfooter.css">
 
 
-
+<!-- <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'custom-green': '#00b246',
+          'custom-blue': '#0a2540'
+        }
+      }
+    }
+  }
+</script> -->
  
   <script>
     tailwind.config = {
@@ -20,6 +31,8 @@
           colors: {
             'keeron-blue': '#0A2044',
             'keeron-green': '#10B981',
+            'custom-green': '#00b246',
+          'custom-blue': '#0a2540'
           }
         }
       }
@@ -61,31 +74,93 @@
         </div>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex ml-10 items-center space-x-7">
-          <a href="#" @click.prevent="activeLink = 'all-courses'"
-            :class="{'text-green-500': activeLink === 'all-courses'}"
-            class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200">All
-            Courses</a>
-
-          <a href="#" @click.prevent="activeLink = 'live-courses'"
-            :class="{'text-green-500': activeLink === 'live-courses'}"
-            class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200">Live
-            Courses</a>
-
-          <a href="#" @click.prevent="activeLink = 'free-test'" :class="{'text-green-500': activeLink === 'free-test'}"
-            class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200">Free
-            Test</a>
-
-          <a href="#" @click.prevent="activeLink = 'download-resources'"
-            :class="{'text-green-500': activeLink === 'download-resources'}"
-            class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200">Download
-            Resources</a>
-
-          <a href="#" @click.prevent="activeLink = 'free-events'"
-            :class="{'text-green-500': activeLink === 'free-events'}"
-            class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200">Free
-            Events</a>
+        <nav class="hidden md:flex ml-10 items-center space-x-7" id="main-nav">
+          <a href="./allcourse.html" 
+             class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200 nav-link"
+             data-target="all-courses">All Courses</a>
+          
+          <a href="./livecourse.html" 
+             class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200 nav-link"
+             data-target="live-courses">Live Courses</a>
+          
+          <a href="./freetest.html" 
+             class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200 nav-link"
+             data-target="free-test">Free Test</a>
+          
+          <a href="./downloadresourse.html" 
+             class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200 nav-link"
+             data-target="download-resources">Download Resources</a>
+          
+          <a href="./freeevent.html" 
+             class="text-gray-700 hover:text-green-500 font-medium transition-colors lg:text-[22px] duration-200 nav-link"
+             data-target="free-events">Free Events</a>
         </nav>
+        
+        <script>
+      document.addEventListener('DOMContentLoaded', function() {
+  // Get all navigation links
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  // Add click event listeners to each nav link
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Remove active class from all links
+      navLinks.forEach(l => l.classList.remove('text-green-500'));
+      
+      // Add active class to clicked link
+      this.classList.add('text-green-500');
+      
+      // Store active link in localStorage
+      localStorage.setItem('activeNavLink', this.dataset.target);
+    });
+  });
+  
+  // Get all links on the page (not just nav links)
+  const allLinks = document.querySelectorAll('a:not(.nav-link)');
+  
+  // Add click event to all other links to reset active state
+  allLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Remove active class from all nav links
+      navLinks.forEach(navLink => navLink.classList.remove('text-green-500'));
+      
+      // Also clear localStorage
+      localStorage.removeItem('activeNavLink');
+    });
+  });
+  
+  // On page load, check if we should set an active link
+  const currentPath = window.location.pathname;
+  let activeSet = false;
+  
+  // Try to match based on the current path
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    const hrefFile = href.split('/').pop();
+    const pathFile = currentPath.split('/').pop();
+    
+    // If current page matches this nav link
+    if (pathFile === hrefFile) {
+      navLinks.forEach(l => l.classList.remove('text-green-500'));
+      link.classList.add('text-green-500');
+      localStorage.setItem('activeNavLink', link.dataset.target);
+      activeSet = true;
+    }
+  });
+  
+  // If no match by URL but we have localStorage, use that
+  if (!activeSet) {
+    const activeLink = localStorage.getItem('activeNavLink');
+    if (activeLink) {
+      const link = document.querySelector(`[data-target="${activeLink}"]`);
+      if (link) {
+        navLinks.forEach(l => l.classList.remove('text-green-500'));
+        link.classList.add('text-green-500');
+      }
+    }
+  }
+});
+        </script>
       </div>
       <div class="flex gap-3 lg:gap-6 items-center">
         <!-- Search bar -->
@@ -947,13 +1022,1014 @@
       </div>
       </div>
 
+      <div class="max-w-[90rem] mx-auto px-4 py-16 max-w-7xl">
+        <!-- Header Section -->
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">The Keeron Experience</h1>
+            <p class="text-xl text-gray-600">Helping you become the very best</p>
+        </div>
+        
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Left Column - Features -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Expert Mentors Card -->
+      <div class="w-full">
+        <div class="feature-card bg-teal-700 text-white p-8 rounded-lg h-full">
+          <div class="icon-container mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Expert Mentors</h3>
+          <p class="text-teal-100">Learn from the industry movers and shapers</p>
+        </div>
+      </div>
+                    
+      <!-- Offline Meetups Card -->
+      <div class="w-full">
+        <div class="feature-card bg-gray-900 text-white p-8 rounded-lg h-full">
+          <div class="icon-container mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Offline Meetups</h3>
+          <p class="text-gray-300">Grow your professional network</p>
+        </div>
+      </div>
       
+      <!-- Row 2 -->
+      <!-- Hybrid Learning Card -->
+      <div class="w-full">
+        <div class="feature-card bg-gray-900 text-white p-8 rounded-lg h-full">
+          <div class="icon-container mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Hybrid Learning</h3>
+          <p class="text-gray-300">On-demand lessons and LIVE classes</p>
+        </div>
+      </div>
+                    
+      <!-- Success Manager Card -->
+      <div class="w-full">
+        <div class="feature-card bg-teal-700 text-white p-8 rounded-lg h-full">
+          <div class="icon-container mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Success Manager</h3>
+          <p class="text-teal-100">Dedicated mentors for career guidance</p>
+        </div>
+      </div>
+    </div>
+            
+            <!-- Right Column - Video -->
+            <div class="lg:col-span-1">
+                <div class="video-container bg-gray-900 rounded-lg overflow-hidden shadow-lg h-full">
+                  <div class="w-full h-full">
+                    <video src="assets/video/Ayatul-Kursi.mp4" controls class="w-full h-full"></video>
+                  </div>
+                  
+                  
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-center my-10">
+          <button type="button" class="bg-[#11a849] hover:bg-[#4eba75] text-white font-semibold py-4 px-6 rounded-full shadow-md transition duration-300 ease-in-out text-base lg:text-2xl">
+            Explore All Resources
+          </button>
+        </div>
+
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('keeronVideo');
+            const playButton = document.getElementById('playButton');
+            const muteButton = document.getElementById('muteButton');
+            const fullscreenButton = document.getElementById('fullscreenButton');
+            const progressFill = document.getElementById('progressFill');
+            const currentTimeElement = document.getElementById('currentTime');
+            const durationElement = document.getElementById('duration');
+            const videoContainer = document.querySelector('.video-container');
+            
+            // Set initial state
+            let isPlaying = false;
+            let isMuted = true;
+            video.muted = true;
+            
+            // Function to format time in MM:SS format
+            function formatTime(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                seconds = Math.floor(seconds % 60);
+                return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            }
+            
+            // Update play/pause button UI
+            function updatePlayButton() {
+                playButton.innerHTML = isPlaying ? 
+                    `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>` : 
+                    `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>`;
+            }
+            
+            // Update mute button UI
+            function updateMuteButton() {
+                muteButton.innerHTML = isMuted ? 
+                    `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                    </svg>` : 
+                    `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                    </svg>`;
+            }
+            
+            // Play/Pause video
+            playButton.addEventListener('click', function() {
+                if (isPlaying) {
+                    video.pause();
+                } else {
+                    video.play();
+                }
+                isPlaying = !isPlaying;
+                updatePlayButton();
+            });
+            
+            // Toggle mute
+            muteButton.addEventListener('click', function() {
+                video.muted = !video.muted;
+                isMuted = video.muted;
+                updateMuteButton();
+            });
+            
+            // Fullscreen toggle
+            fullscreenButton.addEventListener('click', function() {
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                } else {
+                    videoContainer.requestFullscreen();
+                }
+            });
+            
+            // Update progress bar as video plays
+            video.addEventListener('timeupdate', function() {
+                const progress = (video.currentTime / video.duration) * 100;
+                progressFill.style.width = `${progress}%`;
+                currentTimeElement.textContent = formatTime(video.currentTime);
+            });
+            
+            // Set duration when metadata is loaded
+            video.addEventListener('loadedmetadata', function() {
+                durationElement.textContent = formatTime(video.duration);
+            });
+            
+            // Click on progress bar to seek
+            document.querySelector('.progress-bar').addEventListener('click', function(e) {
+                const progressBar = this.getBoundingClientRect();
+                const percent = (e.clientX - progressBar.left) / progressBar.width;
+                video.currentTime = percent * video.duration;
+            });
+            
+            // Handle video end
+            video.addEventListener('ended', function() {
+                isPlaying = false;
+                updatePlayButton();
+                video.currentTime = 0;
+            });
+            
+            // Make the cards responsive on hover
+            document.querySelectorAll('.feature-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.classList.add('scale-105');
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.classList.remove('scale-105');
+                });
+            });
+            
+            // Set the video duration manually since we don't have a real video
+            durationElement.textContent = '2:38';
+
+            // Responsive adjustments
+            function handleResize() {
+                if (window.innerWidth < 768) {
+                    // Mobile adjustments
+                    document.querySelectorAll('.feature-card').forEach(card => {
+                        card.classList.add('p-6');
+                        card.classList.remove('p-8');
+                    });
+                } else {
+                    // Desktop adjustments
+                    document.querySelectorAll('.feature-card').forEach(card => {
+                        card.classList.add('p-8');
+                        card.classList.remove('p-6');
+                    });
+                }
+            }
+            
+            // Initial call and event listener for window resize
+            handleResize();
+            window.addEventListener('resize', handleResize);
+        });
+    </script>
+
+
+    <!-- <style>
+      .fade-gradient {
+        background: linear-gradient(to bottom, #ffffff 0%, #e6f7e6 100%);
+      }
+      .carousel-card {
+        transition: transform 0.3s ease;
+      }
+      .carousel-card:hover {
+        transform: translateY(-5px);
+      }
+      .nav-button {
+        transition: all 0.2s ease;
+      }
+      .nav-button:hover {
+        background-color: #f0f9f0;
+      }
+      .company-badge {
+        font-size: 10px;
+        padding: 2px 8px;
+        border-radius: 12px;
+        background-color: white;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      }
+      /* Fixed slider styles */
+      #carouselWrapper {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+      }
+      #carouselTrack {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+    </style> -->
+
+
+    <div class="container mx-auto px-4 py-12 max-w-6xl">
+      <h2 class="text-4xl font-bold text-center text-custom-blue mb-2">Experienced Mentors</h2>
+      <p class="text-center text-gray-600 mb-12">To help shape your career</p>
+      
+      <div class="relative">
+        <!-- Slider container -->
+        <div class="overflow-hidden">
+          <div id="slider" class="flex transition-transform duration-500 ease-in-out">
+            <!-- Slide 1 -->
+            <div class="w-full md:w-1/3 flex-shrink-0 px-3">
+              <div class="bg-white rounded-lg overflow-hidden shadow-md h-full group">
+                <div class="relative">
+                  <div class="h-96 bg-gradient-to-b from-transparent to-green-100">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Rifatul Maksud" class="w-full h-full object-cover">
+                    <div class="absolute bottom-4 left-4">
+                      <div class="bg-white text-pink-600 text-xs font-semibold py-1 px-2 rounded mb-2 inline-block">BAL</div>
+                      <h3 class="text-xl font-bold text-white">Rifatul Maksud</h3>
+                      <p class="text-sm text-white">Manager - Product</p>
+                    </div>
+                    <!-- Hover button -->
+                    <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <button class="bg-custom-green hover:bg-green-600 text-white font-medium py-2 px-6 rounded-md transition-colors">See Profile</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="w-full md:w-1/3 flex-shrink-0 px-3">
+              <div class="bg-white rounded-lg overflow-hidden shadow-md h-full group">
+                <div class="relative">
+                  <div class="h-96 bg-gradient-to-b from-transparent to-green-100">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Saiara Adrita" class="w-full h-full object-cover">
+                    <div class="absolute bottom-4 left-4">
+                      <div class="bg-white text-red-600 text-xs font-semibold py-1 px-2 rounded mb-2 inline-block">Microsoft</div>
+                      <h3 class="text-xl font-bold text-white">Saiara Adrita</h3>
+                      <p class="text-sm text-white">Product Manager</p>
+                    </div>
+                    <!-- Hover button -->
+                    <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <button class="bg-custom-green hover:bg-green-600 text-white font-medium py-2 px-6 rounded-md transition-colors">See Profile</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="w-full md:w-1/3 flex-shrink-0 px-3">
+              <div class="bg-white rounded-lg overflow-hidden shadow-md h-full group">
+                <div class="relative">
+                  <div class="h-96 bg-gradient-to-b from-transparent to-green-100">
+                    <img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Zunaed Rabbani" class="w-full h-full object-cover">
+                    <div class="absolute bottom-4 left-4">
+                      <div class="bg-white text-blue-600 text-xs font-semibold py-1 px-2 rounded mb-2 inline-block">REY</div>
+                      <h3 class="text-xl font-bold text-white">Zunaed Rabbani</h3>
+                      <p class="text-sm text-white">Founder & CEO</p>
+                    </div>
+                    <!-- Hover button -->
+                    <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <button class="bg-custom-green hover:bg-green-600 text-white font-medium py-2 px-6 rounded-md transition-colors">See Profile</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Slide 4 (duplicate of 1 for infinite loop) -->
+            <div class="w-full md:w-1/3 flex-shrink-0 px-3">
+              <div class="bg-white rounded-lg overflow-hidden shadow-md h-full group">
+                <div class="relative">
+                  <div class="h-96 bg-gradient-to-b from-transparent to-green-100">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Another Mentor" class="w-full h-full object-cover">
+                    <div class="absolute bottom-4 left-4">
+                      <div class="bg-white text-yellow-600 text-xs font-semibold py-1 px-2 rounded mb-2 inline-block">Google</div>
+                      <h3 class="text-xl font-bold text-white">Ahmed Khan</h3>
+                      <p class="text-sm text-white">UX Designer</p>
+                    </div>
+                    <!-- Hover button -->
+                    <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <button class="bg-custom-green hover:bg-green-600 text-white font-medium py-2 px-6 rounded-md transition-colors">See Profile</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Navigation buttons -->
+        <button id="prevBtn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-custom-blue text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg z-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        
+        <button id="nextBtn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-custom-blue text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg z-10">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slides = document.querySelectorAll('#slider > div');
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        let autoplayInterval;
+        
+        // Function to check if we're on mobile
+        function isMobile() {
+          return window.innerWidth < 768; // md breakpoint in Tailwind
+        }
+        
+        // Function to move the slider
+        function updateSlider() {
+          let slidePercentage;
+          
+          // If mobile, show one slide at a time (100%)
+          // If desktop, show three slides at a time (33.33%)
+          if (isMobile()) {
+            slidePercentage = 100;
+          } else {
+            slidePercentage = 100 / 3;
+          }
+          
+          const translateX = -currentIndex * slidePercentage;
+          slider.style.transform = `translateX(${translateX}%)`;
+        }
+        
+        // Function to go to next slide
+        function nextSlide() {
+          currentIndex++;
+          
+          // Reset to beginning when reaching the end
+          if (isMobile()) {
+            // For mobile: totalSlides is the max
+            if (currentIndex >= totalSlides) {
+              currentIndex = 0;
+            }
+          } else {
+            // For desktop: totalSlides - 2 is the max (showing 3 at a time)
+            if (currentIndex > totalSlides - 3) {
+              currentIndex = 0;
+            }
+          }
+          
+          updateSlider();
+        }
+        
+        // Function to go to previous slide
+        function prevSlide() {
+          currentIndex--;
+          
+          // Go to end when going before the first slide
+          if (currentIndex < 0) {
+            if (isMobile()) {
+              currentIndex = totalSlides - 1;
+            } else {
+              currentIndex = totalSlides - 3;
+            }
+          }
+          
+          updateSlider();
+        }
+        
+        // Start autoplay
+        function startAutoplay() {
+          autoplayInterval = setInterval(nextSlide, 5000);
+        }
+        
+        // Stop autoplay
+        function stopAutoplay() {
+          clearInterval(autoplayInterval);
+        }
+        
+        // Event listeners for buttons
+        nextBtn.addEventListener('click', function() {
+          stopAutoplay();
+          nextSlide();
+          startAutoplay();
+        });
+        
+        prevBtn.addEventListener('click', function() {
+          stopAutoplay();
+          prevSlide();
+          startAutoplay();
+        });
+        
+        // Pause autoplay on hover
+        slider.addEventListener('mouseenter', stopAutoplay);
+        slider.addEventListener('mouseleave', startAutoplay);
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+          // Reset to first slide and update the slider
+          currentIndex = 0;
+          updateSlider();
+        });
+        
+        // Initialize slider
+        updateSlider();
+        startAutoplay();
+      });
+    </script>
+  
+
+ <div class="lg:my-[100px]">
+  <div class="bg-[#0B2953] py-[100px] overflow-hidden">
+    <!-- Header -->
+    <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-3">Our ambitious learners</h2>
+        <p class="text-gray-300">Currently work in these companies</p>
+    </div>
+    
+    <!-- Logo Slider Container -->
+    <div class="relative overflow-hidden">
+        <!-- First set of logos -->
+        <div class="flex animate-scroll whitespace-nowrap">
+            <!-- Logo items with doubled content for continuous scrolling -->
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Star" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Pathao" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Truck Lagbe" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Company" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="ShareTrip" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="MGI" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="BAT" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Mindshare" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Daraz" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Httpool" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="ShopUp" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Prothom Alo" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Daily Star" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Pathao" class="h-6 object-contain">
+                </div>
+            </div>
+            
+            <!-- Duplicate all logos for seamless scrolling -->
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Star" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Pathao" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Truck Lagbe" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Company" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="ShareTrip" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="MGI" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="BAT" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Mindshare" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Daraz" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Httpool" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="ShopUp" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Prothom Alo" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Daily Star" class="h-6 object-contain">
+                </div>
+            </div>
+            <div class="flex items-center mx-4 md:mx-6 min-w-max">
+                <div class="bg-white rounded-md p-3 flex items-center justify-center h-12 w-28">
+                    <img src="/api/placeholder/112/48" alt="Pathao" class="h-6 object-contain">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ </div>
+
+<script>
+    // Pause animation on hover
+    const slider = document.querySelector('.animate-scroll');
+    
+    slider.addEventListener('mouseenter', () => {
+        slider.style.animationPlayState = 'paused';
+    });
+    
+    slider.addEventListener('mouseleave', () => {
+        slider.style.animationPlayState = 'running';
+    });
+</script>
+
+<style>
+  @keyframes scroll {
+      0% {
+          transform: translateX(0);
+      }
+      100% {
+          transform: translateX(-50%);
+      }
+  }
+  .animate-scroll {
+      animation: scroll 20s linear infinite;
+  }
+</style>
+
+  <style>
+   
+    
+    .testimonial-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        background-color: white;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .testimonial-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .logo-container {
+        display: flex;
+       
+        align-items: center;
+        height: 100px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .logo-img {
+        height: 100px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+    
+    .testimonial-card:hover .logo-img {
+        transform: scale(1.05);
+    }
+</style>
+
+
+  <div class="container mx-auto px-4 py-12">
+    <!-- Heading Section -->
+    <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">What People are Saying</h2>
+        <p class="text-gray-600 max-w-3xl mx-auto">
+            Students, professionals, and budding entrepreneurs drive and inspire us and make up the
+            Keeron community. Here's what they have to say
+        </p>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="./assets/image/cc3a14d7-d7ec-48fa-beb3-2c33ea4033d5.png" alt="iDesk Logo" class="logo-img">
+            </div>
+            
+            <!-- Description -->
+            <p class="text-gray-700 text-left text-lg mt-4 mb-4">
+                How did Papia Sultana Meem transform her career with the FMCG Sales Excellence course? She mastered key sales skills!
+            </p>
+            
+            <!-- Video Card -->
+            <div class="video-card mb-4">
+              <video src="assets/video/Ayatul-Kursi.mp4" controls></video>
+            </div>
+            
+            <!-- Profile -->
+            <div class="flex items-center space-x-3 mt-auto">
+                <img src="./assets/image/1d2cbacb-ee41-4c9d-b0a5-264aeeb85885.webp" alt="Papia Sultana Meem" class="w-12 h-12 rounded-full">
+                <div>
+                    <h3 class="font-bold text-gray-800">Papia Sultana Meem</h3>
+                    <p class="text-gray-500 text-sm">Accountant</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <!-- Logo -->
+          <div class="logo-container">
+              <img src="./assets/image/cc3a14d7-d7ec-48fa-beb3-2c33ea4033d5.png" alt="iDesk Logo" class="logo-img">
+          </div>
+          
+          <!-- Description -->
+          <p class="text-gray-700 text-left text-lg mt-4 mb-4 mb-4">
+              How did Papia Sultana Meem transform her career with the FMCG Sales Excellence course? She mastered key sales skills!
+          </p>
+          
+          <!-- Video Card -->
+          <div class="video-card mb-4">
+            <video src="assets/video/Ayatul-Kursi.mp4" controls></video>
+          </div>
+          
+          <!-- Profile -->
+          <div class="flex items-center space-x-3 mt-auto">
+              <img src="./assets/image/1d2cbacb-ee41-4c9d-b0a5-264aeeb85885.webp" alt="Papia Sultana Meem" class="w-12 h-12 rounded-full">
+              <div>
+                  <h3 class="font-bold text-gray-800">Papia Sultana Meem</h3>
+                  <p class="text-gray-500 text-sm">Accountant</p>
+              </div>
+          </div>
+      </div> <div class="testimonial-card">
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="./assets/image/cc3a14d7-d7ec-48fa-beb3-2c33ea4033d5.png" alt="iDesk Logo" class="logo-img">
+        </div>
+        
+        <!-- Description -->
+        <p class="text-gray-700 text-left text-lg mt-4 mb-4 mb-4">
+            How did Papia Sultana Meem transform her career with the FMCG Sales Excellence course? She mastered key sales skills!
+        </p>
+        
+        <!-- Video Card -->
+        <div class="video-card mb-4">
+          <video src="assets/video/Ayatul-Kursi.mp4" controls></video>
+        </div>
+        
+        <!-- Profile -->
+        <div class="flex items-center space-x-3 mt-auto">
+            <img src="./assets/image/1d2cbacb-ee41-4c9d-b0a5-264aeeb85885.webp" alt="Papia Sultana Meem" class="w-12 h-12 rounded-full">
+            <div>
+                <h3 class="font-bold text-gray-800">Papia Sultana Meem</h3>
+                <p class="text-gray-500 text-sm">Accountant</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="flex justify-center my-10">
+      <button type="button" class="bg-[#11a849] hover:bg-[#4eba75] text-white font-semibold py-4 px-6 rounded-full shadow-md transition duration-300 ease-in-out text-base lg:text-2xl">
+        Explore All Resources
+      </button>
+    </div>
+</div>
       
 
 
+
+<div class="max-w-[78rem] mx-auto px-4 py-12">
+  <!-- Blog Header -->
+  <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-800 mb-2">Explore our Blog</h2>
+      <p class="text-gray-600">In-depth content for your self-development journey</p>
+  </div>
+
+  <!-- Blog Posts Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- First Blog Post -->
+      <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div class="relative">
+              <img src="./assets/image/Excel-theke-income.jpg" alt="Excel Learning" class="w-full h-[17rem] object-cover">
+              <div class="absolute top-4 left-4 bg-gray-800 text-white px-3 py-1 rounded-md text-sm">
+                  <i class="fa-solid fa-chart-simple mr-1"></i>
+              </div>
+          </div>
+          <div class="p-6">
+              <div class="inline-block bg-green-50 text-green-700 px-3 py-1 rounded-md text-sm font-medium mb-3">
+                  Skill Development
+              </div>
+              <h3 class="text-xl font-bold hover:text-green-600 mb-2">Excel শিখে অনলাইনে আয় করার ৫টি উপায়</h3>
+              <p class="text-gray-600 mb-4">বর্তমান চাকরির বাজারে একটি কমন কথা শোনা যায়, "ভাল্লা ক্যান্ডিডেট পাওয়া যাচ্ছেনা!" এই যোগ্যতার মাপকাঠি কিন্তু কোন বড়ো ডিগ্রিস নয়, বরং বিশেষ ধরণের...</p>
+              
+              <div class="flex items-center justify-between mt-6">
+                  <div class="flex items-center">
+                      <img src="./assets/image/Elta Karim.jpg" alt="Author" class="w-10 h-10 rounded-full mr-3">
+                      <div>
+                          <h4 class="font-medium">Keeron</h4>
+                          <p class="text-gray-500 text-sm">August 19th, 2023</p>
+                      </div>
+                  </div>
+                  <div class="flex items-center text-gray-500">
+                      <span class="flex items-center mr-4"><i class="fa-regular fa-heart mr-1"></i> 2</span>
+                      <span class="flex items-center"><i class="fa-regular fa-comment mr-1"></i> 5</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Second Blog Post -->
+
+      <div class="flex flex-col gap-10">
+        <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 md:col-span-2">
+          <div class="p-4 lg:p-6">
+              <div class="inline-block bg-purple-50 text-purple-700 px-3 py-1 rounded-md text-sm font-medium mb-3">
+                  Career Development
+              </div>
+              <h3 class="text-xl font-bold hover:text-green-700 text-gray-800 mb-2">চাকরির ইন্টারভিউতে জিজ্ঞেস করা ১০ টি কমন প্রশ্ন</h3>
+              <p class="text-gray-600 mb-4">চাকরির ইন্টারভিউতে কিছুটা ভয় বা সংশয় স্বভাবি এমন লোক খুঁজে পাওয়া কঠিন। এর সকল সমাধান...</p>
+              
+              <div class="flex items-center justify-between mt-6">
+                  <div class="flex items-center">
+                      <img src="./assets/image/Elta Karim.jpg" alt="Author" class="w-10 h-10 rounded-full mr-3">
+                      <div>
+                          <h4 class="font-medium">Keeron</h4>
+                          <p class="text-gray-500 text-sm">August 19th, 2023</p>
+                      </div>
+                  </div>
+                  <div class="flex items-center text-gray-500">
+                      <span class="flex items-center mr-4"><i class="fa-regular fa-heart mr-1"></i> 2</span>
+                      <span class="flex items-center"><i class="fa-regular fa-comment mr-1"></i> 3</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 md:col-span-2">
+        <div class="p-6">
+            <div class="inline-block bg-purple-50 text-purple-700 px-3 py-1 rounded-md text-sm font-medium mb-3">
+                Career Development
+            </div>
+            <h3 class="text-xl font-bold hover:text-green-700 text-gray-800 mb-2">চাকরির ইন্টারভিউতে জিজ্ঞেস করা ১০ টি কমন প্রশ্ন</h3>
+            <p class="text-gray-600 mb-4">চাকরির ইন্টারভিউতে কিছুটা ভয় বা সংশয় স্বভাবি এমন লোক খুঁজে পাওয়া কঠিন। এর সকল সমাধান...</p>
+            
+            <div class="flex items-center justify-between mt-6">
+                <div class="flex items-center">
+                    <img src="./assets/image/Elta Karim.jpg" alt="Author" class="w-10 h-10 rounded-full mr-3">
+                    <div>
+                        <h4 class="font-medium">Keeron</h4>
+                        <p class="text-gray-500 text-sm">August 19th, 2023</p>
+                    </div>
+                </div>
+                <div class="flex items-center text-gray-500">
+                    <span class="flex items-center mr-4"><i class="fa-regular fa-heart mr-1"></i> 2</span>
+                    <span class="flex items-center"><i class="fa-regular fa-comment mr-1"></i> 3</span>
+                </div>
+            </div>
+        </div>
+    </div>
+      </div>
+      <!-- <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div class="relative">
+              <img src="/api/placeholder/800/400" alt="Career Development" class="w-full h-64 object-cover">
+          </div>
+          <div class="p-6">
+              <div class="inline-block bg-purple-50 text-purple-700 px-3 py-1 rounded-md text-sm font-medium mb-3">
+                  Career Development
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">সেলস এন্ড মার্কেটিং ভবে ইন্টারভিউ এর প্রস্তুতি নিবেন কীভাবে?</h3>
+              <p class="text-gray-600 mb-4">ইন্টারভিউ হল সেইম ই, সেলস মার্কেটিং হোক বা ইঞ্জিনিয়ার। এটার জন্য আলাদা প্রস্তুতির...</p>
+              
+              <div class="flex items-center justify-between mt-6">
+                  <div class="flex items-center">
+                      <img src="/api/placeholder/40/40" alt="Author" class="w-10 h-10 rounded-full mr-3">
+                      <div>
+                          <h4 class="font-medium">Keeron</h4>
+                          <p class="text-gray-500 text-sm">August 19th, 2023</p>
+                      </div>
+                  </div>
+                  <div class="flex items-center text-gray-500">
+                      <span class="flex items-center mr-4"><i class="fa-regular fa-heart mr-1"></i> 1</span>
+                      <span class="flex items-center"><i class="fa-regular fa-comment mr-1"></i> 2</span>
+                  </div>
+              </div>
+          </div>
+      </div> -->
+
+      <!-- Third Blog Post -->
+      <!-- <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 md:col-span-2">
+          <div class="p-6">
+              <div class="inline-block bg-purple-50 text-purple-700 px-3 py-1 rounded-md text-sm font-medium mb-3">
+                  Career Development
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">চাকরির ইন্টারভিউতে জিজ্ঞেস করা ১০ টি কমন প্রশ্ন</h3>
+              <p class="text-gray-600 mb-4">চাকরির ইন্টারভিউতে কিছুটা ভয় বা সংশয় স্বভাবি এমন লোক খুঁজে পাওয়া কঠিন। এর সকল সমাধান...</p>
+              
+              <div class="flex items-center justify-between mt-6">
+                  <div class="flex items-center">
+                      <img src="/api/placeholder/40/40" alt="Author" class="w-10 h-10 rounded-full mr-3">
+                      <div>
+                          <h4 class="font-medium">Keeron</h4>
+                          <p class="text-gray-500 text-sm">August 19th, 2023</p>
+                      </div>
+                  </div>
+                  <div class="flex items-center text-gray-500">
+                      <span class="flex items-center mr-4"><i class="fa-regular fa-heart mr-1"></i> 2</span>
+                      <span class="flex items-center"><i class="fa-regular fa-comment mr-1"></i> 3</span>
+                  </div>
+              </div>
+          </div>
+      </div> -->
+  </div>
+
+  <div class="flex justify-center my-10">
+    <button type="button" class="bg-[#11a849] hover:bg-[#4eba75] text-white font-semibold py-4 px-6 rounded-full shadow-md transition duration-300 ease-in-out text-base lg:text-2xl">
+      Explore All Resources
+    </button>
+  </div>
+
+
+  <!-- Chat with us Button -->
+  
+</div>
+      
+
+
+
+
+<div class="max-w-[90rem] mx-auto px-4 py-16">
+  <div class="flex flex-col md:flex-row items-center justify-between">
+      <!-- Left Content -->
+      <div class="w-full md:w-1/2 mb-10 md:mb-0 md:pr-8">
+          <h3 class="text-gray-800 text-2xl  font-medium mb-8">Keeron Mobile App</h3>
+          <h2 class="text-gray-800 text-4xl md:text-5xl font-bold mb-8">Download Now</h2>
+          <p class="text-gray-600 text-lg mb-8">Upskilling is now at your fingertips!</p>
+          
+          <div>
+              <h4 class="text-gray-800 text-xl font-medium mb-4">Get the App</h4>
+              <div class="flex flex-wrap gap-4">
+                  <a href="#" class="inline-block">
+                      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="h-12">
+                  </a>
+                  <a href="#" class="inline-block">
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="h-12">
+                </a>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Right Image -->
+      <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+          <div class="relative -mb-[61px] w-64 md:w-[30rem]">
+              <!-- Phone Frame -->
+              <img src="./assets/image/yy.webp" alt="">
+          </div>
+      </div>
+  </div>
+</div>
 
     </main>
 
+
+  <style>
+    .feature-card {
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    .icon-container {
+      display: inline-flex;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 8px;
+    }
+  </style>
 
 
 
