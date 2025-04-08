@@ -1,5 +1,5 @@
 /* add */
-.add{
+.add1{
     /* background-color: #FFCC00; */
     padding: 10px 0;
     background-image: url('../images/offer_bg.png');
@@ -9,14 +9,14 @@
 .add_text{
     justify-content: space-between;
 }
-.add ul{
+.add1 ul{
     text-align: center;
     align-items: self-start;
 }
-.add .text{
+.add1 .text{
     max-width: 55%;
 }
-.add ul p {
+.add1 ul p {
     font-weight: var(--font-semiBold);
 }
 .category {
@@ -55,13 +55,13 @@
 }
 .hero_data{
     color: var(--body-color);
-    /* padding: 10px 0;
+    padding: 10px 0;
     display: grid;
-    grid-template-columns: 1fr 1fr; */
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
     align-items: center;
     justify-items: center;
-    /* height: calc(100vh - 134px); */
+    height: calc(100vh - 134px);
 }
 .hero_video video{
     max-width: 450px;
@@ -138,8 +138,8 @@ section{
     padding: 100px 0;
 }
 .course_dtl{
-    /* display: grid;
-    grid-template-columns: 1.5fr 1fr; */
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
     gap: 20px;
     margin-top: 45px;
     justify-items: center;
@@ -206,19 +206,15 @@ summary{
     padding: 20px 0;
 }
 .course_curriculum .section_header h5{
-    /* box-shadow: 0 0 8px #ff8f8f inset; */
+    box-shadow: 0 0 8px #ff8f8f inset;
     padding: 10px;
-    /* display: inline-block;
-    border-radius: 5px; */
+    display: inline-block;
+    border-radius: 5px;
 }
 .course_curriculum small{
-    font-size: 17px;
+    font-size: 14px;
     font-weight: bold;
     color: gray;
-    display: flex;
-    
-        align-items: center;
-        margin: 0 5px;
 }
 .course_curriculum small.btn_primary{
     cursor: pointer;
@@ -418,7 +414,7 @@ summary{
 }
 .card{
     display: flex;
-    flex-direction: column;
+    flex1-direction: column;
     cursor: pointer;
 }
 .card .card_img {

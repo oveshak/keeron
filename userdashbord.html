@@ -39,10 +39,10 @@
     </script>
     <link rel="stylesheet" href="./assets/css/headerfooter.css">
     <style>
-        body {
+        /* body {
             background-color: #f8f9fa;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        }
+        } */
         .profile-banner {
             background: linear-gradient(90deg, #0e4686 0%, #1976d2 100%);
         }
@@ -468,425 +468,416 @@
         </header>
 
 
-    <div class="max-w-[110rem] mx-auto py-4 px-4 ">
-        <div class="flex flex-col md:flex-row gap-6">
-            <!-- Left Profile Section -->
-            <div class="w-full md:w-1/3 bg-white rounded-lg shadow-sm p-6">
-                <!-- Profile Image -->
-                <div class="flex justify-center mb-4">
-                    <div class="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                    </div>
-                </div>
-                
-                <!-- Name Input -->
-  <div class="mb-2 text-center job-title">
-                    <p class="text-gray-700 text-[22px] font-bold ">Name <span class="text-blue-500 cursor-pointer edit-icon">✏️</span></p>
-                    <div class="hidden job-title-edit">
-                        <!-- <label for="Your Designation/Job Title" class="block text-base font-medium mb-1">Your Designation/Job Title*</label> -->
-                         <p class="text-left text-gray-500">name*</p>
-                        <input type="text" class="w-full border border-gray-300 rounded p-2 mb-2" value="Jr.Software Engineer">
-                        <div class="flex gap-2">
-                            <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-base cancel-edit">Cancel</button>
-                            <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-base save-edit">Save</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="mb-4 hidden name-field">
-                    <label for="name" class="block text-base font-medium mb-1">Name*</label>
-                    <input type="text" id="name" class="w-full border border-gray-300 rounded p-2" value="Rafael Levine">
-                </div>
-                
-                <!-- Update Buttons -->
-                <div class="flex gap-2 hidden mb-4 update-buttons">
-                    <button class="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded cancel-btn">Cancel</button>
-                    <button class="flex-1 bg-green-500 text-white py-2 px-4 rounded update-btn">Update</button>
-                </div>
-                
-                <!-- Job Title -->
-                <div class="mb-2 text-center job-title">
-                    <p class="text-gray-700">Your Designation/Job Title <span class="text-blue-500 cursor-pointer edit-icon">✏️</span></p>
-                    <div class="hidden job-title-edit">
-                        <!-- <label for="Your Designation/Job Title" class="block text-base font-medium mb-1">Your Designation/Job Title*</label> -->
-                         <p class="text-left text-gray-500">Your Designation/Job Title*</p>
-                        <input type="text" class="w-full border border-gray-300 rounded p-2 mb-2" value="Jr.Software Engineer">
-                        <div class="flex gap-2">
-                            <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-base cancel-edit">Cancel</button>
-                            <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-base save-edit">Save</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Company -->
-                <div class="mb-4 text-center company">
-                    <p class="text-gray-700">Add Organization Name <span class="text-blue-500 cursor-pointer edit-icon">✏️</span></p>
-                    <div class="hidden company-edit">
-                        <p class="text-left text-gray-500">Add Organization Name*</p>
-                        <input type="text" class="w-full  focus:outline-none border border-gray-300 rounded p-2 mb-2" value="eeee">
-                        <div class="flex gap-2">
-                            <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-base cancel-edit">Cancel</button>
-                            <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-base save-edit">Save</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Location -->
-                <div class="mb-4 text-center company">
-                    <p class="text-gray-700">Add Location <span class="text-blue-500 cursor-pointer edit-icon">✏️</span></p>
-                    <div class="hidden company-edit">
-                        <p class="text-left text-gray-500">Add Location*</p>
-                        <input type="text" class="w-full border  focus:outline-none border-gray-300 rounded p-2 mb-2" value="eeee">
-                        <div class="flex gap-2">
-                            <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-base cancel-edit">Cancel</button>
-                            <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-base save-edit">Save</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Member Since -->
-                <div class="text-center mb-2 text-base text-gray-600">
-                    Member Since Apr 3, 2025
-                </div>
-                
-                <!-- Profile URL -->
-                <div class="text-center mb-4 text-base text-blue-500">
-                    <a href="https://keeron.com/rafaelevine">https://keeron.com/rafaelevine</a>
-                </div>
-                
-                <!-- Preview Button -->
-                <div class="mb-6">
-                    <button class="w-full border border-gray-300 rounded py-2 px-4 preview-btn">Preview Public Mode</button>
-                </div>
-                
-                <!-- About Me -->
-                <div class="mb-4 about-me">
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="font-medium">About Me</h3>
-                        <button class="text-green-500 edit-btn">Edit</button>
-                    </div>
-                    <p class="text-gray-500 text-base about-text">Add short intro</p>
-                    <div class="hidden about-edit">
-                        <textarea class="w-full  focus:outline-none border border-gray-300 rounded p-2 mb-2" rows="3"></textarea>
-                        <div class="flex gap-2">
-                            <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-base cancel-edit">Cancel</button>
-                            <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-base save-edit">Save</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- CV -->
-                <div class="mb-4 cv-section">
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="font-medium">CV</h3>
-                        <button class="text-green-500 upload-btn">Upload</button>
-                    </div>
-                    <div class="hidden cv-upload">
-                        <input type="file" class="w-full mb-2">
-                        <div class="flex gap-2">
-                            <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-base cancel-upload">Cancel</button>
-                            <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-base save-upload">Upload</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Contact -->
-                <div class="mb-4 contact-section">
-                    <h3 class="font-medium mb-2">Contact By</h3>
-                    <ul class="space-y-2 contact-list">
-                        <li class="flex  flex-col">
-                            <div class="flex ">
-                                <span class="mr-2 plus-icon cursor-pointer" data-platform="Facebook">+</span>
-                            <span>Facebook</span>
-                            </div>
-                            <div class="hidden  social-input-wrapper w-full p-4 bg-[#fafafa]">
-                                <input type="text" class="w-full mb-4 border focus:outline-none border-gray-300 rounded p-1 mb-1 text-base" placeholder="Enter Facebook profile URL">
-                                <div class="flex gap-2">
-                                    <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-xs cancel-social">Cancel</button>
-                                    <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-xs save-social">Save</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="flex flex-col">
-                            <div class="flex ">
-                                <span class="mr-2 plus-icon cursor-pointer" data-platform="LinkedIn">+</span>
-                            <span>LinkedIn</span>
-                            </div>
-                            <div class="hidden  social-input-wrapper w-full p-4 bg-[#fafafa]">
-                                <input type="text" class="w-full  focus:outline-none border border-gray-300 rounded p-1 mb-1 text-base" placeholder="Enter LinkedIn profile URL">
-                                <div class="flex gap-2">
-                                    <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-xs cancel-social">Cancel</button>
-                                    <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-xs save-social">Save</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="flex flex-col">
-                           <div class="flex">
-                            <span class="mr-2 plus-icon cursor-pointer" data-platform="Instagram">+</span>
-                            <span>Instagram</span>
-                           </div>
-                            <div class="hidden  social-input-wrapper w-full p-4 bg-[#fafafa]">
-                                <input type="text" class="w-full  focus:outline-none border border-gray-300 rounded p-1 mb-1 text-base" placeholder="Enter Instagram profile URL">
-                                <div class="flex gap-2">
-                                    <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-xs cancel-social">Cancel</button>
-                                    <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-xs save-social">Save</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="flex flex-col">
-                           <div class="flex"> <span class="mr-2 plus-icon cursor-pointer" data-platform="Github">+</span>
-                            <span>Github</span></div>
-                            <div class="hidden  social-input-wrapper w-full p-4 bg-[#fafafa]">
-                                <input type="text" class="w-full  focus:outline-none border border-gray-300 rounded p-1 mb-1 text-base" placeholder="Enter Github profile URL">
-                                <div class="flex gap-2">
-                                    <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-xs cancel-social">Cancel</button>
-                                    <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-xs save-social">Save</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="flex flex-col">
-                            <div class="flex ">
-                                <span class="mr-2 plus-icon cursor-pointer" data-platform="Behance">+</span>
-                            <span>Behance</span>
-                            </div>
-                            <div class="hidden  social-input-wrapper w-full p-4 bg-[#fafafa]">
-                                <input type="text" class="w-full  focus:outline-none border border-gray-300 rounded p-1 mb-1 text-base" placeholder="Enter Behance profile URL">
-                                <div class="flex gap-2">
-                                    <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-xs cancel-social">Cancel</button>
-                                    <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-xs save-social">Save</button>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                
-                <!-- Focus Area -->
-                <div class="mb-4 focus-area">
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="font-medium">Focus Area</h3>
-                        <button class="text-green-500 edit-btn">Edit</button>
-                    </div>
-                    <p class="text-gray-500 text-base focus-text">Add Your Focus Area</p>
-                    <div class="hidden focus-edit">
-                        <textarea class="w-full  focus:outline-none border border-gray-300 rounded p-2 mb-2" rows="3"></textarea>
-                        <div class="flex gap-2">
-                            <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-base cancel-edit">Cancel</button>
-                            <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-base save-edit">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Right Content Section -->
-            <div class="w-full md:w-2/3">
-                <!-- Banner -->
-                <div class="profile-banner text-white p-4 rounded-lg mb-6">
-                    <div class="flex justify-between items-center">
-                        <div>
-                            <h2 class="font-medium">Hi this is Rafael Levine!</h2>
-                            <p>Welcome to my profile ! ✓</p>
-                        </div>
-                        <button class="bg-white text-blue-800 px-3 py-1 rounded-md text-base flex items-center gap-1 change-theme-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+        <div class="max-w-[110rem] mx-auto py-4 lg:px-4 ">
+            <div class="flex flex-col md:flex-row gap-6">
+                <!-- Left Profile Section -->
+                <div class="w-full md:w-1/3 bg-white rounded-lg shadow-sm p-6">
+                    <!-- Profile Image -->
+                    <div class="flex justify-center mb-4">
+                        <div class="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
-                            Change Theme
-                        </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Name Input -->
+                    <div class="mb-2 text-center job-title">
+                        <p class="text-gray-700 text-2xl font-bold ">Name <span class="text-blue-500 cursor-pointer edit-icon">✏️</span></p>
+                        <div class="hidden job-title-edit">
+                            <!-- <label for="Your Designation/Job Title" class="block text-base font-medium mb-1">Your Designation/Job Title*</label> -->
+                             <p class="text-left text-gray-500 text-lg">name*</p>
+                            <input type="text" class="w-full border border-gray-300 rounded p-2 mb-2" value="Jr.Software Engineer">
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-lg cancel-edit">Cancel</button>
+                                <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-lg save-edit">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4 hidden name-field">
+                        <label for="name" class="block text-lg font-medium mb-1">Name*</label>
+                        <input type="text" id="name" class="w-full border border-gray-300 rounded p-2" value="Rafael Levine">
+                    </div>
+                    
+                    <!-- Update Buttons -->
+                    <div class="flex gap-2 hidden mb-4 update-buttons">
+                        <button class="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded text-lg cancel-btn">Cancel</button>
+                        <button class="flex-1 bg-green-500 text-white py-2 px-4 rounded text-lg update-btn">Update</button>
+                    </div>
+                    
+                    <!-- Job Title -->
+                    <div class="mb-2 text-center job-title">
+                        <p class="text-gray-700 text-xl">Your Designation/Job Title <span class="text-blue-500 cursor-pointer edit-icon">✏️</span></p>
+                        <div class="hidden job-title-edit">
+                            <!-- <label for="Your Designation/Job Title" class="block text-base font-medium mb-1">Your Designation/Job Title*</label> -->
+                             <p class="text-left text-gray-500 text-lg">Your Designation/Job Title*</p>
+                            <input type="text" class="w-full border border-gray-300 rounded p-2 mb-2" value="Jr.Software Engineer">
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-lg cancel-edit">Cancel</button>
+                                <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-lg save-edit">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Company -->
+                    <div class="mb-4 text-center company">
+                        <p class="text-gray-700 text-xl">Add Organization Name <span class="text-blue-500 cursor-pointer edit-icon">✏️</span></p>
+                        <div class="hidden company-edit">
+                            <p class="text-left text-gray-500 text-lg">Add Organization Name*</p>
+                            <input type="text" class="w-full focus:outline-none border border-gray-300 rounded p-2 mb-2" value="eeee">
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-lg cancel-edit">Cancel</button>
+                                <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-lg save-edit">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Location -->
+                    <div class="mb-4 text-center company">
+                        <p class="text-gray-700 text-xl">Add Location <span class="text-blue-500 cursor-pointer edit-icon">✏️</span></p>
+                        <div class="hidden company-edit">
+                            <p class="text-left text-gray-500 text-lg">Add Location*</p>
+                            <input type="text" class="w-full border focus:outline-none border-gray-300 rounded p-2 mb-2" value="eeee">
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-lg cancel-edit">Cancel</button>
+                                <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-lg save-edit">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Member Since -->
+                    <div class="text-center mb-2 text-lg text-gray-600">
+                        Member Since Apr 3, 2025
+                    </div>
+                    
+                    <!-- Profile URL -->
+                    <div class="text-center mb-4 text-lg text-blue-500">
+                        <a href="https://keeron.com/rafaelevine">https://keeron.com/rafaelevine</a>
+                    </div>
+                    
+                    <!-- Preview Button -->
+                    <div class="mb-6">
+                        <button class="w-full border border-gray-300 rounded py-2 px-4 text-lg preview-btn">Preview Public Mode</button>
+                    </div>
+                    
+                    <!-- About Me -->
+                    <div class="mb-4 about-me">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-medium text-xl">About Me</h3>
+                            <button class="text-green-500 text-lg edit-btn">Edit</button>
+                        </div>
+                        <p class="text-gray-500 text-lg about-text">Add short intro</p>
+                        <div class="hidden about-edit">
+                            <textarea class="w-full focus:outline-none border border-gray-300 rounded p-2 mb-2" rows="3"></textarea>
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-lg cancel-edit">Cancel</button>
+                                <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-lg save-edit">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CV -->
+                    <div class="mb-4 cv-section">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-medium text-xl">CV</h3>
+                            <button class="text-green-500 text-lg upload-btn">Upload</button>
+                        </div>
+                        <div class="hidden cv-upload">
+                            <input type="file" class="w-full mb-2 text-lg">
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-lg cancel-upload">Cancel</button>
+                                <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-lg save-upload">Upload</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact -->
+                    <div class="mb-4 contact-section">
+                        <h3 class="font-medium mb-2 text-xl">Contact By</h3>
+                        <ul class="space-y-2 contact-list">
+                            <li class="flex flex-col">
+                                <div class="flex">
+                                    <span class="mr-2 plus-icon cursor-pointer text-lg" data-platform="Facebook">+</span>
+                                    <span class="text-lg">Facebook</span>
+                                </div>
+                                <div class="hidden social-input-wrapper w-full p-4 bg-[#fafafa]">
+                                    <input type="text" class="w-full mb-4 border focus:outline-none border-gray-300 rounded p-1 mb-1 text-lg" placeholder="Enter Facebook profile URL">
+                                    <div class="flex gap-2">
+                                        <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-lg cancel-social">Cancel</button>
+                                        <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-lg save-social">Save</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="flex flex-col">
+                                <div class="flex">
+                                    <span class="mr-2 plus-icon cursor-pointer text-lg" data-platform="LinkedIn">+</span>
+                                    <span class="text-lg">LinkedIn</span>
+                                </div>
+                                <div class="hidden social-input-wrapper w-full p-4 bg-[#fafafa]">
+                                    <input type="text" class="w-full focus:outline-none border border-gray-300 rounded p-1 mb-1 text-lg" placeholder="Enter LinkedIn profile URL">
+                                    <div class="flex gap-2">
+                                        <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-lg cancel-social">Cancel</button>
+                                        <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-lg save-social">Save</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="flex flex-col">
+                                <div class="flex">
+                                    <span class="mr-2 plus-icon cursor-pointer text-lg" data-platform="Instagram">+</span>
+                                    <span class="text-lg">Instagram</span>
+                                </div>
+                                <div class="hidden social-input-wrapper w-full p-4 bg-[#fafafa]">
+                                    <input type="text" class="w-full focus:outline-none border border-gray-300 rounded p-1 mb-1 text-lg" placeholder="Enter Instagram profile URL">
+                                    <div class="flex gap-2">
+                                        <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-lg cancel-social">Cancel</button>
+                                        <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-lg save-social">Save</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="flex flex-col">
+                                <div class="flex">
+                                    <span class="mr-2 plus-icon cursor-pointer text-lg" data-platform="Github">+</span>
+                                    <span class="text-lg">Github</span>
+                                </div>
+                                <div class="hidden social-input-wrapper w-full p-4 bg-[#fafafa]">
+                                    <input type="text" class="w-full focus:outline-none border border-gray-300 rounded p-1 mb-1 text-lg" placeholder="Enter Github profile URL">
+                                    <div class="flex gap-2">
+                                        <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-lg cancel-social">Cancel</button>
+                                        <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-lg save-social">Save</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="flex flex-col">
+                                <div class="flex">
+                                    <span class="mr-2 plus-icon cursor-pointer text-lg" data-platform="Behance">+</span>
+                                    <span class="text-lg">Behance</span>
+                                </div>
+                                <div class="hidden social-input-wrapper w-full p-4 bg-[#fafafa]">
+                                    <input type="text" class="w-full focus:outline-none border border-gray-300 rounded p-1 mb-1 text-lg" placeholder="Enter Behance profile URL">
+                                    <div class="flex gap-2">
+                                        <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-lg cancel-social">Cancel</button>
+                                        <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-lg save-social">Save</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Focus Area -->
+                    <div class="mb-4 focus-area">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-medium text-xl">Focus Area</h3>
+                            <button class="text-green-500 text-lg edit-btn">Edit</button>
+                        </div>
+                        <p class="text-gray-500 text-lg focus-text">Add Your Focus Area</p>
+                        <div class="hidden focus-edit">
+                            <textarea class="w-full focus:outline-none border border-gray-300 rounded p-2 mb-2" rows="3"></textarea>
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-gray-100 text-gray-700 py-1 px-2 rounded text-lg cancel-edit">Cancel</button>
+                                <button class="flex-1 bg-green-500 text-white py-1 px-2 rounded text-lg save-edit">Save</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Navigation Tabs -->
-                <div class="flex overflow-x-auto mb-6">
-                    <button class="px-4 py-2 text-gray-600 hover:text-[#000] tab-btn" data-tab="overview">Overview</button>
-                    <button class="px-4 py-2 text-gray-600 hover:text-[#000] tab-btn" data-tab="career">Career Summary</button>
-                    <button class="px-4 py-2 bg-blue-900 text-white rounded-md tab-btn" data-tab="certificates">Certificates & Badges</button>
-                    <button class="px-4 py-2 text-gray-600 hover:text-[#000] tab-btn" data-tab="recommendations">Recommendations</button>
-                </div>
-                
-                <!-- Tab Content -->
-                <div class="tab-content" id="overview-content" style="display: none;">
-
-                    <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
-                        
-                        
-                        <div class="border border-dashed border-gray-300 rounded-lg p-8 flex flex-col items-center justify-center">
-                            <div class="h-16 w-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
+                <!-- Right Content Section -->
+                <div class="w-full md:w-2/3">
+                    <!-- Banner -->
+                    <div class="profile-banner text-white p-4 rounded-lg mb-6">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h2 class="font-medium text-xl">Hi this is Rafael Levine!</h2>
+                                <p class="text-lg">Welcome to my profile ! ✓</p>
                             </div>
-                          
-                          <h3 class="text-lg font-medium text-gray-700 mb-2">You haven't added any career details yet</h3>
-                          <p class="text-gray-600 text-center mb-6">Start Learning with Keeron
-
-                            Explore All Courses</p>
-                          
-                          <a href="" class="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-6 rounded-full flex items-center transition-colors">
-                            <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                            </svg> -->
-                            Explore All Courses
-                          </a>
+                            <button class="bg-white text-blue-800 px-3 py-1 rounded-md text-lg flex items-center gap-1 change-theme-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                </svg>
+                                Change Theme
+                            </button>
                         </div>
-                      </div>
-                      
-
-                   
-                </div>
-                
-                <div class="tab-content" id="career-content" style="display: none;">
-                    <!-- Career History Section -->
-                    <div class="max-w-4xl mx-auto">
-                        <!-- Career History Section -->
+                    </div>
+                    
+                    <!-- Navigation Tabs -->
+                    <div class="flex overflow-x-auto mb-6">
+                        <button class="px-4 py-2 text-lg text-gray-600 hover:text-[#000] tab-btn" data-tab="overview">Overview</button>
+                        <button class="px-4 py-2 text-lg text-gray-600 hover:text-[#000] tab-btn" data-tab="career">Career Summary</button>
+                        <button class="px-4 py-2 bg-blue-900 text-white rounded-md text-lg tab-btn" data-tab="certificates">Certificates & Badges</button>
+                        <button class="px-4 py-2 text-lg text-gray-600 hover:text-[#000] tab-btn" data-tab="recommendations">Recommendations</button>
+                    </div>
+                    
+                    <!-- Tab Content -->
+                    <div class="tab-content" id="overview-content" style="display: none;">
                         <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
-                            <h2 class="text-xl font-medium text-gray-800 mb-4">Career History</h2>
-                            <div id="career-empty-state" class="border border-dashed border-gray-300 rounded-lg p-8 flex flex-col items-center justify-center">
-                                <div class="bg-green-100 rounded-full p-4 mb-4">
+                            <div class="border border-dashed border-gray-300 rounded-lg p-8 flex flex-col items-center justify-center">
+                                <div class="h-16 w-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                 </div>
-                                <h3 class="text-lg font-medium text-gray-700 mb-2">You haven't added any career details yet</h3>
-                                <p class="text-gray-600 text-center mb-6">Add work Organizations, skills and professional experience to your Keeron Profile</p>
-                                <button id="add-workplace-btn" class="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-6 rounded-full flex items-center transition-colors">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                    </svg>
-                                    Add Workplace
-                                </button>
+                              
+                              <h3 class="text-xl font-medium text-gray-700 mb-2">You haven't added any career details yet</h3>
+                              <p class="text-gray-600 text-lg text-center mb-6">Start Learning with Keeron Explore All Courses</p>
+                              
+                              <a href="" class="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-6 rounded-full flex items-center transition-colors text-lg">
+                                Explore All Courses
+                              </a>
                             </div>
-                
-                            <!-- Career History Form (Initially Hidden) -->
-                            <div id="career-form" class="hidden">
-                                <div class="career-position-container mb-6 pb-6 border-b border-gray-200">
-                                    <div class="mb-4">
-                                        <label class="block text-base font-medium text-gray-700 mb-1">
-                                            Work Place <span class="text-red-500">*</span>
-                                        </label>
-                                        <input type="text" placeholder="Add your company name" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="career-content" style="display: none;">
+                        <!-- Career History Section -->
+                        <div class="max-w-4xl mx-auto">
+                            <!-- Career History Section -->
+                            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                                <h2 class="text-2xl font-medium text-gray-800 mb-4">Career History</h2>
+                                <div id="career-empty-state" class="border border-dashed border-gray-300 rounded-lg p-8 flex flex-col items-center justify-center">
+                                    <div class="bg-green-100 rounded-full p-4 mb-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
                                     </div>
-                                    
-                                    <div class="mb-4">
-                                        <label class="block text-base font-medium text-gray-700 mb-1">
-                                            Location
-                                        </label>
-                                        <input type="text" placeholder="Add your company location" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-                                    </div>
-                                    
-                                    <div class="mb-4">
-                                        <label class="block text-base font-medium text-gray-700 mb-1">
-                                            Position <span class="text-red-500">*</span>
-                                        </label>
-                                        <input type="text" placeholder="Add position name" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-                                    </div>
-                                    
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                        <div>
-                                            <label class="block text-base font-medium text-gray-700 mb-1">
-                                                From <span class="text-red-500">*</span>
+                                    <h3 class="text-xl font-medium text-gray-700 mb-2">You haven't added any career details yet</h3>
+                                    <p class="text-gray-600 text-lg text-center mb-6">Add work Organizations, skills and professional experience to your Keeron Profile</p>
+                                    <button id="add-workplace-btn" class="bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-6 rounded-full flex items-center transition-colors text-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                        </svg>
+                                        Add Workplace
+                                    </button>
+                                </div>
+                    
+                                <!-- Career History Form (Initially Hidden) -->
+                                <div id="career-form" class="hidden">
+                                    <div class="career-position-container mb-6 pb-6 border-b border-gray-200">
+                                        <div class="mb-4">
+                                            <label class="block text-lg font-medium text-gray-700 mb-1">
+                                                Work Place <span class="text-red-500">*</span>
                                             </label>
-                                            <div class="grid grid-cols-2 gap-4">
-                                                <select class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-                                                    <option value="">Select year</option>
-                                                    <!-- Years will be added by JS -->
-                                                </select>
-                                                <select class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-                                                    <option value="">Select Month</option>
-                                                    <option value="1">January</option>
-                                                    <option value="2">February</option>
-                                                    <option value="3">March</option>
-                                                    <option value="4">April</option>
-                                                    <option value="5">May</option>
-                                                    <option value="6">June</option>
-                                                    <option value="7">July</option>
-                                                    <option value="8">August</option>
-                                                    <option value="9">September</option>
-                                                    <option value="10">October</option>
-                                                    <option value="11">November</option>
-                                                    <option value="12">December</option>
-                                                </select>
+                                            <input type="text" placeholder="Add your company name" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-lg">
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label class="block text-lg font-medium text-gray-700 mb-1">
+                                                Location
+                                            </label>
+                                            <input type="text" placeholder="Add your company location" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-lg">
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <label class="block text-lg font-medium text-gray-700 mb-1">
+                                                Position <span class="text-red-500">*</span>
+                                            </label>
+                                            <input type="text" placeholder="Add position name" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-lg">
+                                        </div>
+                                        
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                            <div>
+                                                <label class="block text-lg font-medium text-gray-700 mb-1">
+                                                    From <span class="text-red-500">*</span>
+                                                </label>
+                                                <div class="grid grid-cols-2 gap-4">
+                                                    <select class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-lg">
+                                                        <option value="">Select year</option>
+                                                        <!-- Years will be added by JS -->
+                                                    </select>
+                                                    <select class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-lg">
+                                                        <option value="">Select Month</option>
+                                                        <option value="1">January</option>
+                                                        <option value="2">February</option>
+                                                        <option value="3">March</option>
+                                                        <option value="4">April</option>
+                                                        <option value="5">May</option>
+                                                        <option value="6">June</option>
+                                                        <option value="7">July</option>
+                                                        <option value="8">August</option>
+                                                        <option value="9">September</option>
+                                                        <option value="10">October</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">December</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            
+                                            <div>
+                                                <label class="block text-lg font-medium text-gray-700 mb-1">
+                                                    To <span class="text-red-500">*</span>
+                                                </label>
+                                                <div class="grid grid-cols-2 gap-4">
+                                                    <select class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-lg">
+                                                        <option value="">Select year</option>
+                                                        <!-- Years will be added by JS -->
+                                                    </select>
+                                                    <select class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-lg">
+                                                        <option value="">Select Month</option>
+                                                        <option value="1">January</option>
+                                                        <option value="2">February</option>
+                                                        <option value="3">March</option>
+                                                        <option value="4">April</option>
+                                                        <option value="5">May</option>
+                                                        <option value="6">June</option>
+                                                        <option value="7">July</option>
+                                                        <option value="8">August</option>
+                                                        <option value="9">September</option>
+                                                        <option value="10">October</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">December</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         
-                                        <div>
-                                            <label class="block text-base font-medium text-gray-700 mb-1">
-                                                To <span class="text-red-500">*</span>
+                                        <div class="mb-4">
+                                            <label class="flex items-center">
+                                                <input type="checkbox" class="h-4 w-4 text-green-500 focus:ring-green-500 border-gray-300 rounded">
+                                                <span class="ml-2 text-lg text-gray-700">I am currently working on this role.</span>
                                             </label>
-                                            <div class="grid grid-cols-2 gap-4">
-                                                <select class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-                                                    <option value="">Select year</option>
-                                                    <!-- Years will be added by JS -->
-                                                </select>
-                                                <select class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-                                                    <option value="">Select Month</option>
-                                                    <option value="1">January</option>
-                                                    <option value="2">February</option>
-                                                    <option value="3">March</option>
-                                                    <option value="4">April</option>
-                                                    <option value="5">May</option>
-                                                    <option value="6">June</option>
-                                                    <option value="7">July</option>
-                                                    <option value="8">August</option>
-                                                    <option value="9">September</option>
-                                                    <option value="10">October</option>
-                                                    <option value="11">November</option>
-                                                    <option value="12">December</option>
-                                                </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <button id="add-more-position" class="text-green-500 hover:text-green-600 font-medium flex items-center mb-6 text-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                        </svg>
+                                        Add More Position
+                                    </button>
+                                    
+                                    <div class="mb-4">
+                                        <label class="block text-lg font-medium text-gray-700 mb-1">
+                                            Short Description
+                                        </label>
+                                        <textarea rows="4" placeholder="Add short description" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-lg"></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-6">
+                                        <label class="block text-lg font-medium text-gray-700 mb-1">
+                                            Skills
+                                        </label>
+                                        <div class="relative">
+                                            <select class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 appearance-none text-lg">
+                                                <option value="">Select</option>
+                                                <option value="html">HTML</option>
+                                                <option value="css">CSS</option>
+                                                <option value="javascript">JavaScript</option>
+                                                <option value="react">React</option>
+                                                <option value="tailwind">Tailwind CSS</option>
+                                            </select>
+                                            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                </svg>
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <div class="mb-4">
-                                        <label class="flex items-center">
-                                            <input type="checkbox" class="h-4 w-4 text-green-500 focus:ring-green-500 border-gray-300 rounded">
-                                            <span class="ml-2 text-base text-gray-700">I am currently working on this role.</span>
-                                        </label>
+                                    <div class="flex justify-end space-x-4">
+                                        <button id="career-cancel" class="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none text-lg">Cancel</button>
+                                        <button id="career-add" class="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none text-lg">Add</button>
                                     </div>
-                                </div>
-                                
-                                <button id="add-more-position" class="text-green-500 hover:text-green-600 font-medium flex items-center mb-6">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                    </svg>
-                                    Add More Position
-                                </button>
-                                
-                                <div class="mb-4">
-                                    <label class="block text-base font-medium text-gray-700 mb-1">
-                                        Short Description
-                                    </label>
-                                    <textarea rows="4" placeholder="Add short description" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
-                                </div>
-                                
-                                <div class="mb-6">
-                                    <label class="block text-base font-medium text-gray-700 mb-1">
-                                        Skills
-                                    </label>
-                                    <div class="relative">
-                                        <select class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 appearance-none">
-                                            <option value="">Select</option>
-                                            <option value="html">HTML</option>
-                                            <option value="css">CSS</option>
-                                            <option value="javascript">JavaScript</option>
-                                            <option value="react">React</option>
-                                            <option value="tailwind">Tailwind CSS</option>
-                                        </select>
-                                        <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                                            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex justify-end space-x-4">
-                                    <button id="career-cancel" class="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none">Cancel</button>
-                                    <button id="career-add" class="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none">Add</button>
                                 </div>
                             </div>
-                        </div>
                         
                         <!-- Education Section -->
                         <div class="bg-white rounded-lg shadow-sm p-6">

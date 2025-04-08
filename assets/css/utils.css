@@ -84,18 +84,18 @@ i:hover {
 } */
 
 /* __________________ Class CSS __________________ */
-.container {
+.container1 {
     max-width: calc(1240px + 40px);
     padding: 0px 20px;
     margin: 0 auto;
 }
-/* input {
-    border: none;
+input {
+    
     outline: none;
     background-color: inherit;
     padding: 5px;
     width: 100%;
-} */
+}
 /* button {
     border: none;
     cursor: pointer;
@@ -107,8 +107,8 @@ i:hover {
     background-color: var(--primary-color);
     transition: .5s;
     white-space: nowrap;
-}
-button:hover{
+} */
+/* button:hover{
     background-color: var(--secondary-color);
     box-shadow: 1px 1px 3px gray;
 } */
@@ -132,7 +132,11 @@ button:hover{
     display: none;
     background-color: #3333335b;
 }
-
+.flex1{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 .line1,.line2,.line3,.line5, .line7 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -169,7 +173,7 @@ button:hover{
     body{
         font-size: 14px;
     }
-    .container {
+    .container1 {
         max-width: calc(1240px + 30px);
         padding: 0px 15px;
         margin: 0 auto;

@@ -1,4 +1,43 @@
-
+  /* Sidebar styling */
+  #sign-in-sidebar {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s;
+  }
+  
+  #sign-in-sidebar.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  #sign-in-sidebar.active .sidebar-panel {
+    transform: translateX(0);
+  }
+  
+  .sidebar-panel {
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .sidebar-overlay {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  #sign-in-sidebar.active .sidebar-overlay {
+    opacity: 1;
+  }
+  
+  /* OTP input styling */
+  .otp-input:focus {
+    outline: none;
+    border-color: #10B981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  }
+  
+  .keeron-gradient {
+    background: linear-gradient(135deg, #0F766E 0%, #047857 100%);
+  }
 /* Base styles for search input */
 .search-input-container {
   position: fixed;

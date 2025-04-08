@@ -1,4 +1,6 @@
 
+
+
       const searchBtn = document.getElementById('searchBtn');
       const searchInputContainer = document.getElementById('searchInputContainer');
       const searchInput = document.getElementById('searchInput');
@@ -48,7 +50,19 @@
       });
   
 
-
+      const toggleButton = document.getElementById('whatsapp-toggle');
+      const chatWidget = document.querySelector('.fixed.bottom-24');
+      
+      // Hide chat widget initially
+      chatWidget.style.display = 'none';
+      
+      toggleButton.addEventListener('click', () => {
+        if (chatWidget.style.display === 'none') {
+          chatWidget.style.display = 'block';
+        } else {
+          chatWidget.style.display = 'none';
+        }
+      });
 
       
       // Elements
